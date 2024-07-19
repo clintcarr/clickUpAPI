@@ -17,7 +17,7 @@ query = {"archived": "false"}
 
 def get_space():
     """
-    Function that performs GET to collect spaces
+    Function that performs GET to collect spaces.
     """
     response = requests.get(url.format (teamId),headers=headers, params=query)
     data = response.json()
@@ -25,3 +25,16 @@ def get_space():
     for i in data['spaces']:
         clSpaces.update({i['id']: i['name']})
     return(clSpaces)
+
+def get_folders(spaceId):
+    """
+    Function to return folders from defined space.
+    """
+    
+    clFolders = {}
+    url = "https://api.clickup.com/api/v2/space/"+ spaceId+ "/folder"
+    response = requests.get(url, headers=headers, params=query)
+    data = response.json()
+    for i in data['folders']:
+        clFolders.update({i['id']: i['name']})
+    return(clFolders)
