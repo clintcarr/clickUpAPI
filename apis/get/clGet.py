@@ -17,7 +17,7 @@ query = {"archived": "false"}
 
 def get_space():
     """
-    Function that performs GET to collect spaces
+    Function that performs GET to collect spaces.
     """
     response = requests.get(url.format (teamId),headers=headers, params=query)
     data = response.json()
