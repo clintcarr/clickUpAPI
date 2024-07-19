@@ -30,6 +30,7 @@ def get_folders(spaceId):
     """
     Function to return folders from defined space.
     """
+    
     clFolders = {}
     url = "https://api.clickup.com/api/v2/space/"+ spaceId+ "/folder"
     response = requests.get(url, headers=headers, params=query)
