@@ -25,15 +25,3 @@ def get_space():
     for i in data['spaces']:
         clSpaces.update({i['id']: i['name']})
     return(clSpaces)
-
-def get_folders(spaceId):
-    """
-    Function to return folders from defined space. Another update. NOTHER UPDATE
-    """
-    clFolders = {}
-    url = "https://api.clickup.com/api/v2/space/"+ spaceId+ "/folder"
-    response = requests.get(url, headers=headers, params=query)
-    data = response.json()
-    for i in data['folders']:
-        clFolders.update({i['id']: i['name']})
-    return(clFolders)
